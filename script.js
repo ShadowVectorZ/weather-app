@@ -1,6 +1,6 @@
 let container=document.querySelector('#container') 
- 
- fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK?key=9VW6V5TZUV62HFKHVM5C6RFHZ', {mode: 'cors'})
+ let place='London'
+ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}?key=9VW6V5TZUV62HFKHVM5C6RFHZ`, {mode: 'cors'})
  .then(function(response) {
   return response.json();
 })

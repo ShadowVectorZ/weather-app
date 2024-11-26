@@ -1,4 +1,5 @@
 let container = document.querySelector('#container')
+let title=document.querySelector(`#title`)
 let conditionsDiv = document.querySelector('#conditions')
 let humidityDiv = document.querySelector('#humidity')
 let tempDiv = document.querySelector('#temp')
@@ -6,6 +7,8 @@ let cloudCoverDiv = document.querySelector('#cloudcover')
 let precipDiv = document.querySelector('#precip')
 let buttonDiv=document.querySelector(`#buttonDiv`)
 let newPlace
+
+
 
 let convertToCelsius = function (number) {
   let temperature = Number(number)
@@ -27,12 +30,13 @@ let getWeather = function () {
       return response.json();
     })
     .then(function (response) {
+      
       conditionsDiv.textContent = `Conditions: ${response.currentConditions.conditions}`
       humidityDiv.textContent = `Humidity: ${response.currentConditions.humidity}`;
       tempDiv.textContent = `Temperature: ${response.currentConditions.temp}`;
       cloudCoverDiv.textContent = `Cloud Cover: ${response.currentConditions.cloudcover}`;
       precipDiv.textContent = `Precipitation: ${response.currentConditions.precip}`;
-      
+      title.textContent=`${newPlace}`
       while(buttonDiv.firstChild){
         buttonDiv.removeChild(buttonDiv.lastChild)
       }

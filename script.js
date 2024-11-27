@@ -30,7 +30,8 @@ let getWeather = function () {
       return response.json();
     })
     .then(function (response) {
-      
+      console.log(response);
+
       conditionsDiv.textContent = `Conditions: ${response.currentConditions.conditions}`
       humidityDiv.textContent = `Humidity: ${response.currentConditions.humidity}`;
       tempDiv.textContent = `Temperature: ${response.currentConditions.temp}`;

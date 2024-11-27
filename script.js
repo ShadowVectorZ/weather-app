@@ -5,21 +5,16 @@ let humidityDiv = document.querySelector('#humidity')
 let tempDiv = document.querySelector('#temp')
 let cloudCoverDiv = document.querySelector('#cloudcover')
 let precipDiv = document.querySelector('#precip')
+let descripDiv=document.querySelector('#description')
+let windSpeed=document.querySelector('#wind-speed')
+let minTemp=document.querySelector('#min-temp')
+let maxTemp=document.querySelector('#max-temp')
 let buttonDiv=document.querySelector(`#buttonDiv`)
 let newPlace
-
-
 
 let convertToCelsius = function (number) {
   let temperature = Number(number)
   let newTemperature = (((temperature) - 32) * (5 / 9))
-  let result = newTemperature.toFixed(1)
-  return (result)
-};
-
-let convertToFahrenheit = function (number) {
-  let temperature=Number(number)
-  let newTemperature =((temperature) * (9 / 5)) + 32
   let result = newTemperature.toFixed(1)
   return (result)
 };
@@ -37,6 +32,10 @@ let getWeather = function () {
       tempDiv.textContent = `Temperature: ${response.currentConditions.temp}`;
       cloudCoverDiv.textContent = `Cloud Cover: ${response.currentConditions.cloudcover}`;
       precipDiv.textContent = `Precipitation: ${response.currentConditions.precip}`;
+      descripDiv.textContent=`Description: ${response.description}`
+      windSpeed.textContent=`Wind Speed: ${response.currentConditions.windspeed}`
+      minTemp.textContent=`Min Temp: ${response.days[0].tempmin}`
+      maxTemp.textContent=`Max Temp: ${response.days[0].tempmax}`
       title.textContent=`${newPlace}`
       while(buttonDiv.firstChild){
         buttonDiv.removeChild(buttonDiv.lastChild)
@@ -47,6 +46,8 @@ let getWeather = function () {
       celButton.textContent = 'Celsius'
       celButton.addEventListener('click', () => {
         tempDiv.textContent=`Temperature: ${(convertToCelsius(`${response.currentConditions.temp}`))}`
+        minTemp.textContent=`Temperature: ${(convertToCelsius(`${response.days[0].tempmin}`))}`
+        maxTemp.textContent=`Temperature: ${(convertToCelsius(`${response.days[0].tempmax}`))}`
       })
       buttonDiv.appendChild(celButton)
 
@@ -55,6 +56,8 @@ let getWeather = function () {
       farButton.textContent = 'Fahrenheit'
       farButton.addEventListener('click', () => {
         tempDiv.textContent=`Temperature: ${response.currentConditions.temp}`
+        minTemp.textContent=`Min Temp: ${response.days[0].tempmin}`
+        maxTemp.textContent=`Max Temp: ${response.days[0].tempmax}`
       })
       buttonDiv.appendChild(farButton)
 

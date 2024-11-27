@@ -1,4 +1,7 @@
-
+#form-div{
+    display:flex;
+   justify-content:center;
+}
 
 #container{
     display:flex;
@@ -17,4 +20,12 @@
    
     display:flex;
     justify-content:center;
+    margin-top:50px;
+}
+
+#buttonDiv{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:10px;
 }

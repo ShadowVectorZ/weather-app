@@ -11,6 +11,7 @@ let minTemp=document.querySelector('#min-temp')
 let maxTemp=document.querySelector('#max-temp')
 let buttonDiv=document.querySelector(`#buttonDiv`)
 let newPlace
+let img=document.querySelector('#img')
 
 let convertToCelsius = function (number) {
   let temperature = Number(number)
@@ -25,6 +26,24 @@ let getWeather = function () {
       return response.json();
     })
     .then(function (response) {
+      switch(response.currentConditions.conditions){
+        case 'Partially cloudy':
+          img.src="./images/partly-cloudy.png";
+          break;
+          case 'Overcast':
+          img.src="./images/cloudy.png";
+          break;
+          case 'Clear':
+          img.src="./images/sun.png";
+          break;
+          case 'Rain, Partially cloudy':
+          img.src="./images/rain.png";
+          break;
+          case 'Rain, Overcast':
+          img.src="./images/rain.png";
+          break;
+
+      }
       conditionsDiv.textContent = `Conditions: ${response.currentConditions.conditions}`
       humidityDiv.textContent = `Humidity: ${response.currentConditions.humidity}`;
       tempDiv.textContent = `Temperature: ${response.currentConditions.temp} F`;

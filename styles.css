@@ -16,6 +16,19 @@
     margin:10px;
 }
 
+#left-side{
+    border:solid 1px black;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    flex-direction:column;
+    gap:10px;
+}
+
+#right-side{
+    border:solid 1px black;
+}
+
 #title{
    
     display:flex;

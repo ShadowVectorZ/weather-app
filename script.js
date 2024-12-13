@@ -25,17 +25,15 @@ let getWeather = function () {
       return response.json();
     })
     .then(function (response) {
-      console.log(response);
-
       conditionsDiv.textContent = `Conditions: ${response.currentConditions.conditions}`
       humidityDiv.textContent = `Humidity: ${response.currentConditions.humidity}`;
-      tempDiv.textContent = `Temperature: ${response.currentConditions.temp}`;
+      tempDiv.textContent = `Temperature: ${response.currentConditions.temp} F`;
       cloudCoverDiv.textContent = `Cloud Cover: ${response.currentConditions.cloudcover}`;
       precipDiv.textContent = `Precipitation: ${response.currentConditions.precip}`;
       descripDiv.textContent=`Description: ${response.description}`
       windSpeed.textContent=`Wind Speed: ${response.currentConditions.windspeed}`
-      minTemp.textContent=`Min Temp: ${response.days[0].tempmin}`
-      maxTemp.textContent=`Max Temp: ${response.days[0].tempmax}`
+      minTemp.textContent=`Min Temp: ${response.days[0].tempmin} F`
+      maxTemp.textContent=`Max Temp: ${response.days[0].tempmax} F`
       title.textContent=`${newPlace}`
       while(buttonDiv.firstChild){
         buttonDiv.removeChild(buttonDiv.lastChild)
@@ -45,9 +43,9 @@ let getWeather = function () {
       celButton.classList.add('tempButton')
       celButton.textContent = 'Celsius'
       celButton.addEventListener('click', () => {
-        tempDiv.textContent=`Temperature: ${(convertToCelsius(`${response.currentConditions.temp}`))}`
-        minTemp.textContent=`Temperature: ${(convertToCelsius(`${response.days[0].tempmin}`))}`
-        maxTemp.textContent=`Temperature: ${(convertToCelsius(`${response.days[0].tempmax}`))}`
+        tempDiv.textContent=`Temperature: ${(convertToCelsius(`${response.currentConditions.temp}`))} C`
+        minTemp.textContent=`Min Temp: ${(convertToCelsius(`${response.days[0].tempmin}`))} C`
+        maxTemp.textContent=`Max Temp: ${(convertToCelsius(`${response.days[0].tempmax}`))} C`
       })
       buttonDiv.appendChild(celButton)
 
@@ -55,9 +53,9 @@ let getWeather = function () {
       farButton.classList.add('tempButton')
       farButton.textContent = 'Fahrenheit'
       farButton.addEventListener('click', () => {
-        tempDiv.textContent=`Temperature: ${response.currentConditions.temp}`
-        minTemp.textContent=`Min Temp: ${response.days[0].tempmin}`
-        maxTemp.textContent=`Max Temp: ${response.days[0].tempmax}`
+        tempDiv.textContent=`Temperature: ${response.currentConditions.temp} F`
+        minTemp.textContent=`Min Temp: ${response.days[0].tempmin} F`
+        maxTemp.textContent=`Max Temp: ${response.days[0].tempmax} F`
       })
       buttonDiv.appendChild(farButton)
 
@@ -75,3 +73,7 @@ locationForm.addEventListener('submit', (event) => {
 )
 
 
+//<a target="_blank" href="https://icons8.com/icon/15352/sun">Sun</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+//<a target="_blank" href="https://icons8.com/icon/15360/rain">Rain</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+//<a target="_blank" href="https://icons8.com/icon/11871/cloud">Cloud</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+//<a target="_blank" href="https://icons8.com/icon/15359/partly-cloudy-day">Partly Cloudy Day</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

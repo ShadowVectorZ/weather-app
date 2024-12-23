@@ -38,6 +38,9 @@ let getWeather = function () {
           case 'Clear':
           img.src="./images/sun.png";
           break;
+          case 'Rain':
+          img.src="./images/rain.png";
+          break;
           case 'Rain, Partially cloudy':
           img.src="./images/rain.png";
           break;
@@ -45,6 +48,9 @@ let getWeather = function () {
           img.src="./images/rain.png";
           break;
           case 'Snow, Overcast':
+          img.src='./images/snow.png';
+          break;
+          case 'Snow':
           img.src='./images/snow.png';
           break;
 

@@ -1,5 +1,7 @@
 let container = document.querySelector('#container')
 let title=document.querySelector(`#title`)
+let leftSide=document.querySelector(`#left-side`)
+let rightSide=document.querySelector(`#right-side`)
 let conditionsDiv = document.querySelector('#conditions')
 let humidityDiv = document.querySelector('#humidity')
 let tempDiv = document.querySelector('#temp')
@@ -42,18 +44,26 @@ let getWeather = function () {
           case 'Rain, Overcast':
           img.src="./images/rain.png";
           break;
+          case 'Snow, Overcast':
+          img.src='./images/snow.png';
+          break;
 
       }
+      title.textContent=`${newPlace}`
       conditionsDiv.textContent = `Conditions: ${response.currentConditions.conditions}`
-      humidityDiv.textContent = `Humidity: ${response.currentConditions.humidity}`;
-      tempDiv.textContent = `Temperature: ${response.currentConditions.temp} F`;
-      cloudCoverDiv.textContent = `Cloud Cover: ${response.currentConditions.cloudcover}`;
-      precipDiv.textContent = `Precipitation: ${response.currentConditions.precip}`;
       descripDiv.textContent=`Description: ${response.description}`
-      windSpeed.textContent=`Wind Speed: ${response.currentConditions.windspeed}`
+      tempDiv.textContent = `Temperature: ${response.currentConditions.temp} F`;
       minTemp.textContent=`Min Temp: ${response.days[0].tempmin} F`
       maxTemp.textContent=`Max Temp: ${response.days[0].tempmax} F`
-      title.textContent=`${newPlace}`
+
+      cloudCoverDiv.textContent = `Cloud Cover: ${response.currentConditions.cloudcover}`;
+      precipDiv.textContent = `Precipitation: ${response.currentConditions.precip}`;
+      humidityDiv.textContent = `Humidity: ${response.currentConditions.humidity}`;
+      windSpeed.textContent=`Wind Speed: ${response.currentConditions.windspeed}`
+     
+      leftSide.setAttribute('style','width:500px;')
+      rightSide.setAttribute('style','width:500px;')
+      
       while(buttonDiv.firstChild){
         buttonDiv.removeChild(buttonDiv.lastChild)
       }
@@ -96,3 +106,4 @@ locationForm.addEventListener('submit', (event) => {
 //<a target="_blank" href="https://icons8.com/icon/15360/rain">Rain</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 //<a target="_blank" href="https://icons8.com/icon/11871/cloud">Cloud</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 //<a target="_blank" href="https://icons8.com/icon/15359/partly-cloudy-day">Partly Cloudy Day</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+//<a target="_blank" href="https://icons8.com/icon/15356/snow">Snow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

@@ -4,23 +4,12 @@ import partCloudyImage from "./images/partly-cloudy.png"
 import rainImage from "./images/rain.png"
 import snowImage from "./images/snow.png"
 import sunImage from "./images/sun.png"
+import { title, leftSide, rightSide, conditionsDiv, humidityDiv, 
+  tempDiv, cloudCoverDiv, precipDiv, descripDiv, windSpeed, minTemp,
+  maxTemp, buttonDiv, img } from "./variables.js";
 
-let container = document.querySelector('#container')
-let title=document.querySelector(`#title`)
-let leftSide=document.querySelector(`#left-side`)
-let rightSide=document.querySelector(`#right-side`)
-let conditionsDiv = document.querySelector('#conditions')
-let humidityDiv = document.querySelector('#humidity')
-let tempDiv = document.querySelector('#temp')
-let cloudCoverDiv = document.querySelector('#cloudcover')
-let precipDiv = document.querySelector('#precip')
-let descripDiv=document.querySelector('#description')
-let windSpeed=document.querySelector('#wind-speed')
-let minTemp=document.querySelector('#min-temp')
-let maxTemp=document.querySelector('#max-temp')
-let buttonDiv=document.querySelector(`#buttonDiv`)
+
 let newPlace
-let img=document.querySelector('#img')
 
 let convertToCelsius = function (number) {
   let temperature = Number(number)
@@ -78,6 +67,7 @@ let getWeather = function () {
       windSpeed.textContent=`Wind Speed: ${response.currentConditions.windspeed}`
      
       leftSide.setAttribute('style','width:500px;')
+      leftSide.setAttribute("style", "padding:10px;")
       rightSide.setAttribute('style','width:500px;')
       
       while(buttonDiv.firstChild){

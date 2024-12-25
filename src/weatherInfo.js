@@ -1,3 +1,14 @@
+
+import cloudyImage from "./images/cloudy.png"
+import partCloudyImage from "./images/partly-cloudy.png"
+import rainImage from "./images/rain.png"
+import snowImage from "./images/snow.png"
+import sunImage from "./images/sun.png"
+import { title, leftSide, rightSide, conditionsDiv, humidityDiv, 
+  tempDiv, cloudCoverDiv, precipDiv, descripDiv, windSpeed, minTemp,
+  maxTemp, buttonDiv, img } from "./variables.js";
+import{newPlace} from './form.js'
+
 let getWeather = function () {
     fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${newPlace}?key=9VW6V5TZUV62HFKHVM5C6RFHZ`, { mode: 'cors' })
       .then(function (response) {

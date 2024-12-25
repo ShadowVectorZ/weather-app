@@ -1,6 +1,3 @@
-const greeting = "Hello, Odinite!";
-const farewell = "Bye bye, Odinite!";
-
 let title=document.querySelector(`#title`)
 let leftSide=document.querySelector(`#left-side`)
 let rightSide=document.querySelector(`#right-side`)

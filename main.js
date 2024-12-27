@@ -110,13 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/form.js":
-/*!*********************!*\
-  !*** ./src/form.js ***!
-  \*********************/
+/***/ "./src/displayWeather.js":
+/*!*******************************!*\
+  !*** ./src/displayWeather.js ***!
+  \*******************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   displayWeather: () => (/* binding */ displayWeather)\n/* harmony export */ });\n/* harmony import */ var _getWeather_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWeather.js */ \"./src/getWeather.js\");\n/* harmony import */ var _script_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./script.js */ \"./src/script.js\");\n/* harmony import */ var _images_cloudy_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/cloudy.png */ \"./src/images/cloudy.png\");\n/* harmony import */ var _images_partly_cloudy_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/partly-cloudy.png */ \"./src/images/partly-cloudy.png\");\n/* harmony import */ var _images_rain_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/rain.png */ \"./src/images/rain.png\");\n/* harmony import */ var _images_snow_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./images/snow.png */ \"./src/images/snow.png\");\n/* harmony import */ var _images_sun_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/sun.png */ \"./src/images/sun.png\");\n/* harmony import */ var _variables_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./variables.js */ \"./src/variables.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_script_js__WEBPACK_IMPORTED_MODULE_1__]);\n_script_js__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\n\n\n\n\nlet weather=await (0,_script_js__WEBPACK_IMPORTED_MODULE_1__.getWeather)()\n\nlet displayWeather=function(){\n    switch(weather.currentConditions.conditions){\n      case 'Partially cloudy':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_partly_cloudy_png__WEBPACK_IMPORTED_MODULE_3__;\n        break;\n        case 'Overcast':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_cloudy_png__WEBPACK_IMPORTED_MODULE_2__;\n        break;\n        case 'Clear':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_sun_png__WEBPACK_IMPORTED_MODULE_6__;\n        break;\n        case 'Rain':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_rain_png__WEBPACK_IMPORTED_MODULE_4__;\n        break;\n        case 'Rain, Partially cloudy':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_rain_png__WEBPACK_IMPORTED_MODULE_4__;\n        break;\n        case 'Rain, Overcast':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_rain_png__WEBPACK_IMPORTED_MODULE_4__;\n        break;\n        case 'Snow, Overcast':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_snow_png__WEBPACK_IMPORTED_MODULE_5__;\n        break;\n        case 'Snow, Partially cloudy':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_snow_png__WEBPACK_IMPORTED_MODULE_5__;\n        break;\n        case 'Snow':\n        _variables_js__WEBPACK_IMPORTED_MODULE_7__.img.src=_images_snow_png__WEBPACK_IMPORTED_MODULE_5__;\n        break;\n\n    }\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.title.textContent=document.querySelector('#formLocation').value\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.conditionsDiv.textContent = `Conditions: ${weather.currentConditions.conditions}`\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.descripDiv.textContent=`Description: ${weather.description}`\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.tempDiv.textContent = `Temperature: ${weather.currentConditions.temp} F`;\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.minTemp.textContent=`Min Temp: ${weather.days[0].tempmin} F`\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.maxTemp.textContent=`Max Temp: ${weather.days[0].tempmax} F`\n\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.cloudCoverDiv.textContent = `Cloud Cover: ${weather.currentConditions.cloudcover}`;\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.precipDiv.textContent = `Precipitation: ${weather.currentConditions.precip}`;\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.humidityDiv.textContent = `Humidity: ${weather.currentConditions.humidity}`;\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.windSpeed.textContent=`Wind Speed: ${weather.currentConditions.windspeed}`\n   \n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.leftSide.setAttribute('style','width:500px;')\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.leftSide.setAttribute(\"style\", \"padding:10px;\")\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.rightSide.setAttribute('style','width:500px;')\n    \n    while(_variables_js__WEBPACK_IMPORTED_MODULE_7__.buttonDiv.firstChild){\n      _variables_js__WEBPACK_IMPORTED_MODULE_7__.buttonDiv.removeChild(_variables_js__WEBPACK_IMPORTED_MODULE_7__.buttonDiv.lastChild)\n    }\n\n    const celButton = document.createElement('button')\n    celButton.classList.add('tempButton')\n    celButton.textContent = 'Celsius'\n    celButton.addEventListener('click', () => {\n      _variables_js__WEBPACK_IMPORTED_MODULE_7__.tempDiv.textContent=`Temperature: ${((0,_getWeather_js__WEBPACK_IMPORTED_MODULE_0__.convertToCelsius)(`${weather.currentConditions.temp}`))} C`\n      _variables_js__WEBPACK_IMPORTED_MODULE_7__.minTemp.textContent=`Min Temp: ${((0,_getWeather_js__WEBPACK_IMPORTED_MODULE_0__.convertToCelsius)(`${weather.days[0].tempmin}`))} C`\n      _variables_js__WEBPACK_IMPORTED_MODULE_7__.maxTemp.textContent=`Max Temp: ${((0,_getWeather_js__WEBPACK_IMPORTED_MODULE_0__.convertToCelsius)(`${weather.days[0].tempmax}`))} C`\n    })\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.buttonDiv.appendChild(celButton)\n\n    const farButton = document.createElement('button')\n    farButton.classList.add('tempButton')\n    farButton.textContent = 'Fahrenheit'\n    farButton.addEventListener('click', () => {\n      _variables_js__WEBPACK_IMPORTED_MODULE_7__.tempDiv.textContent=`Temperature: ${weather.currentConditions.temp} F`\n      _variables_js__WEBPACK_IMPORTED_MODULE_7__.minTemp.textContent=`Min Temp: ${weather.days[0].tempmin} F`\n      _variables_js__WEBPACK_IMPORTED_MODULE_7__.maxTemp.textContent=`Max Temp: ${weather.days[0].tempmax} F`\n    })\n    _variables_js__WEBPACK_IMPORTED_MODULE_7__.buttonDiv.appendChild(farButton)\n\n\n  }\n\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://weather-app/./src/displayWeather.js?");
+
+/***/ }),
+
+/***/ "./src/getWeather.js":
+/*!***************************!*\
+  !*** ./src/getWeather.js ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   newPlace: () => (/* binding */ newPlace)\n/* harmony export */ });\n/* harmony import */ var _weatherInfo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weatherInfo */ \"./src/weatherInfo.js\");\n\nlet newPlace\nlet locationForm = document.querySelector('#locationForm')\nlocationForm.addEventListener('submit', (event) => {\n  event.preventDefault()\n  newPlace = document.querySelector('#formLocation').value\n  ;(0,_weatherInfo__WEBPACK_IMPORTED_MODULE_0__.getWeather)()\n  locationForm.reset()\n}\n)\n\n\n\n//# sourceURL=webpack://weather-app/./src/form.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   convertToCelsius: () => (/* binding */ convertToCelsius)\n/* harmony export */ });\n\n\n\n\nlet convertToCelsius = function (number) {\n    let temperature = Number(number)\n    let newTemperature = (((temperature) - 32) * (5 / 9))\n    let result = newTemperature.toFixed(1)\n    return (result)\n  };\n\n  \n\n//# sourceURL=webpack://weather-app/./src/getWeather.js?");
 
 /***/ }),
 
@@ -124,9 +134,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!***********************!*\
   !*** ./src/script.js ***!
   \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _weatherInfo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weatherInfo.js */ \"./src/weatherInfo.js\");\n\n\n\n\n\n\nlet convertToCelsius = function (number) {\n  let temperature = Number(number)\n  let newTemperature = (((temperature) - 32) * (5 / 9))\n  let result = newTemperature.toFixed(1)\n  return (result)\n};\n\n\n\n\n\n\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15352/sun\">Sun</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15360/rain\">Rain</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/11871/cloud\">Cloud</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15359/partly-cloudy-day\">Partly Cloudy Day</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15356/snow\">Snow</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n\n//# sourceURL=webpack://weather-app/./src/script.js?");
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getWeather: () => (/* binding */ getWeather)\n/* harmony export */ });\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _displayWeather_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./displayWeather.js */ \"./src/displayWeather.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_displayWeather_js__WEBPACK_IMPORTED_MODULE_1__]);\n_displayWeather_js__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\n\n\n\n\nlet newPlace\nasync function getWeather () {\n  let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${newPlace}?key=9VW6V5TZUV62HFKHVM5C6RFHZ`, { mode: 'cors' })\n  let dataset=response.json()\n  console.log(dataset)\n  return await dataset\n   \n}\n\n\nlet locationForm = document.querySelector('#locationForm')\nlocationForm.addEventListener('submit', async (event) => {\n  event.preventDefault()\n  newPlace = document.querySelector('#formLocation').value\n  let weather= await getWeather(newPlace)\n  ;(0,_displayWeather_js__WEBPACK_IMPORTED_MODULE_1__.displayWeather)(weather)\n  console.log(newPlace)\n  locationForm.reset()\n}\n)\n\n\n\n\n\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15352/sun\">Sun</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15360/rain\">Rain</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/11871/cloud\">Cloud</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15359/partly-cloudy-day\">Partly Cloudy Day</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n//<a target=\"_blank\" href=\"https://icons8.com/icon/15356/snow\">Snow</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });\n\n//# sourceURL=webpack://weather-app/./src/script.js?");
 
 /***/ }),
 
@@ -137,16 +147,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   buttonDiv: () => (/* binding */ buttonDiv),\n/* harmony export */   cloudCoverDiv: () => (/* binding */ cloudCoverDiv),\n/* harmony export */   conditionsDiv: () => (/* binding */ conditionsDiv),\n/* harmony export */   descripDiv: () => (/* binding */ descripDiv),\n/* harmony export */   humidityDiv: () => (/* binding */ humidityDiv),\n/* harmony export */   img: () => (/* binding */ img),\n/* harmony export */   leftSide: () => (/* binding */ leftSide),\n/* harmony export */   maxTemp: () => (/* binding */ maxTemp),\n/* harmony export */   minTemp: () => (/* binding */ minTemp),\n/* harmony export */   precipDiv: () => (/* binding */ precipDiv),\n/* harmony export */   rightSide: () => (/* binding */ rightSide),\n/* harmony export */   tempDiv: () => (/* binding */ tempDiv),\n/* harmony export */   title: () => (/* binding */ title),\n/* harmony export */   windSpeed: () => (/* binding */ windSpeed)\n/* harmony export */ });\nlet title=document.querySelector(`#title`)\nlet leftSide=document.querySelector(`#left-side`)\nlet rightSide=document.querySelector(`#right-side`)\nlet conditionsDiv = document.querySelector('#conditions')\nlet humidityDiv = document.querySelector('#humidity')\nlet tempDiv = document.querySelector('#temp')\nlet cloudCoverDiv = document.querySelector('#cloudcover')\nlet precipDiv = document.querySelector('#precip')\nlet descripDiv=document.querySelector('#description')\nlet windSpeed=document.querySelector('#wind-speed')\nlet minTemp=document.querySelector('#min-temp')\nlet maxTemp=document.querySelector('#max-temp')\nlet buttonDiv=document.querySelector(`#buttonDiv`)\nlet img=document.querySelector('#img')\n\n\n\n//# sourceURL=webpack://weather-app/./src/variables.js?");
-
-/***/ }),
-
-/***/ "./src/weatherInfo.js":
-/*!****************************!*\
-  !*** ./src/weatherInfo.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getWeather: () => (/* binding */ getWeather)\n/* harmony export */ });\n/* harmony import */ var _images_cloudy_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./images/cloudy.png */ \"./src/images/cloudy.png\");\n/* harmony import */ var _images_partly_cloudy_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/partly-cloudy.png */ \"./src/images/partly-cloudy.png\");\n/* harmony import */ var _images_rain_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/rain.png */ \"./src/images/rain.png\");\n/* harmony import */ var _images_snow_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/snow.png */ \"./src/images/snow.png\");\n/* harmony import */ var _images_sun_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/sun.png */ \"./src/images/sun.png\");\n/* harmony import */ var _variables_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./variables.js */ \"./src/variables.js\");\n/* harmony import */ var _form_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./form.js */ \"./src/form.js\");\n\n\n\n\n\n\n\n\n\nlet getWeather = function () {\n    fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${_form_js__WEBPACK_IMPORTED_MODULE_6__.newPlace}?key=9VW6V5TZUV62HFKHVM5C6RFHZ`, { mode: 'cors' })\n      .then(function (response) {\n        return response.json();\n      })\n      .then(function (response) {\n        switch(response.currentConditions.conditions){\n          case 'Partially cloudy':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_partly_cloudy_png__WEBPACK_IMPORTED_MODULE_1__;\n            break;\n            case 'Overcast':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_cloudy_png__WEBPACK_IMPORTED_MODULE_0__;\n            break;\n            case 'Clear':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_sun_png__WEBPACK_IMPORTED_MODULE_4__;\n            break;\n            case 'Rain':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_rain_png__WEBPACK_IMPORTED_MODULE_2__;\n            break;\n            case 'Rain, Partially cloudy':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_rain_png__WEBPACK_IMPORTED_MODULE_2__;\n            break;\n            case 'Rain, Overcast':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_rain_png__WEBPACK_IMPORTED_MODULE_2__;\n            break;\n            case 'Snow, Overcast':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_snow_png__WEBPACK_IMPORTED_MODULE_3__;\n            break;\n            case 'Snow, Partially cloudy':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_snow_png__WEBPACK_IMPORTED_MODULE_3__;\n            break;\n            case 'Snow':\n            _variables_js__WEBPACK_IMPORTED_MODULE_5__.img.src=_images_snow_png__WEBPACK_IMPORTED_MODULE_3__;\n            break;\n  \n        }\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.title.textContent=`${_form_js__WEBPACK_IMPORTED_MODULE_6__.newPlace}`\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.conditionsDiv.textContent = `Conditions: ${response.currentConditions.conditions}`\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.descripDiv.textContent=`Description: ${response.description}`\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.tempDiv.textContent = `Temperature: ${response.currentConditions.temp} F`;\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.minTemp.textContent=`Min Temp: ${response.days[0].tempmin} F`\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.maxTemp.textContent=`Max Temp: ${response.days[0].tempmax} F`\n  \n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.cloudCoverDiv.textContent = `Cloud Cover: ${response.currentConditions.cloudcover}`;\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.precipDiv.textContent = `Precipitation: ${response.currentConditions.precip}`;\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.humidityDiv.textContent = `Humidity: ${response.currentConditions.humidity}`;\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.windSpeed.textContent=`Wind Speed: ${response.currentConditions.windspeed}`\n       \n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.leftSide.setAttribute('style','width:500px;')\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.leftSide.setAttribute(\"style\", \"padding:10px;\")\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.rightSide.setAttribute('style','width:500px;')\n        \n        while(_variables_js__WEBPACK_IMPORTED_MODULE_5__.buttonDiv.firstChild){\n          _variables_js__WEBPACK_IMPORTED_MODULE_5__.buttonDiv.removeChild(_variables_js__WEBPACK_IMPORTED_MODULE_5__.buttonDiv.lastChild)\n        }\n  \n        const celButton = document.createElement('button')\n        celButton.classList.add('tempButton')\n        celButton.textContent = 'Celsius'\n        celButton.addEventListener('click', () => {\n          _variables_js__WEBPACK_IMPORTED_MODULE_5__.tempDiv.textContent=`Temperature: ${(convertToCelsius(`${response.currentConditions.temp}`))} C`\n          _variables_js__WEBPACK_IMPORTED_MODULE_5__.minTemp.textContent=`Min Temp: ${(convertToCelsius(`${response.days[0].tempmin}`))} C`\n          _variables_js__WEBPACK_IMPORTED_MODULE_5__.maxTemp.textContent=`Max Temp: ${(convertToCelsius(`${response.days[0].tempmax}`))} C`\n        })\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.buttonDiv.appendChild(celButton)\n  \n        const farButton = document.createElement('button')\n        farButton.classList.add('tempButton')\n        farButton.textContent = 'Fahrenheit'\n        farButton.addEventListener('click', () => {\n          _variables_js__WEBPACK_IMPORTED_MODULE_5__.tempDiv.textContent=`Temperature: ${response.currentConditions.temp} F`\n          _variables_js__WEBPACK_IMPORTED_MODULE_5__.minTemp.textContent=`Min Temp: ${response.days[0].tempmin} F`\n          _variables_js__WEBPACK_IMPORTED_MODULE_5__.maxTemp.textContent=`Max Temp: ${response.days[0].tempmax} F`\n        })\n        _variables_js__WEBPACK_IMPORTED_MODULE_5__.buttonDiv.appendChild(farButton)\n  \n  \n      })\n  }\n\n  \n\n//# sourceURL=webpack://weather-app/./src/weatherInfo.js?");
 
 /***/ }),
 
@@ -227,6 +227,75 @@ eval("module.exports = __webpack_require__.p + \"f5f3731430c79558cc22.png\";\n\n
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/async module */
+/******/ 	(() => {
+/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
+/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
+/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
+/******/ 		var resolveQueue = (queue) => {
+/******/ 			if(queue && queue.d < 1) {
+/******/ 				queue.d = 1;
+/******/ 				queue.forEach((fn) => (fn.r--));
+/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
+/******/ 			}
+/******/ 		}
+/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
+/******/ 			if(dep !== null && typeof dep === "object") {
+/******/ 				if(dep[webpackQueues]) return dep;
+/******/ 				if(dep.then) {
+/******/ 					var queue = [];
+/******/ 					queue.d = 0;
+/******/ 					dep.then((r) => {
+/******/ 						obj[webpackExports] = r;
+/******/ 						resolveQueue(queue);
+/******/ 					}, (e) => {
+/******/ 						obj[webpackError] = e;
+/******/ 						resolveQueue(queue);
+/******/ 					});
+/******/ 					var obj = {};
+/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
+/******/ 					return obj;
+/******/ 				}
+/******/ 			}
+/******/ 			var ret = {};
+/******/ 			ret[webpackQueues] = x => {};
+/******/ 			ret[webpackExports] = dep;
+/******/ 			return ret;
+/******/ 		}));
+/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
+/******/ 			var queue;
+/******/ 			hasAwait && ((queue = []).d = -1);
+/******/ 			var depQueues = new Set();
+/******/ 			var exports = module.exports;
+/******/ 			var currentDeps;
+/******/ 			var outerResolve;
+/******/ 			var reject;
+/******/ 			var promise = new Promise((resolve, rej) => {
+/******/ 				reject = rej;
+/******/ 				outerResolve = resolve;
+/******/ 			});
+/******/ 			promise[webpackExports] = exports;
+/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
+/******/ 			module.exports = promise;
+/******/ 			body((deps) => {
+/******/ 				currentDeps = wrapDeps(deps);
+/******/ 				var fn;
+/******/ 				var getResult = () => (currentDeps.map((d) => {
+/******/ 					if(d[webpackError]) throw d[webpackError];
+/******/ 					return d[webpackExports];
+/******/ 				}))
+/******/ 				var promise = new Promise((resolve) => {
+/******/ 					fn = () => (resolve(getResult));
+/******/ 					fn.r = 0;
+/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
+/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
+/******/ 				});
+/******/ 				return fn.r ? promise : getResult();
+/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
+/******/ 			queue && queue.d < 0 && (queue.d = 0);
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -311,7 +380,7 @@ eval("module.exports = __webpack_require__.p + \"f5f3731430c79558cc22.png\";\n\n
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/script.js");
 /******/ 	
 /******/ })()

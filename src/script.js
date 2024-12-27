@@ -1,18 +1,34 @@
 import"./styles.css";
 
 
-import {getWeather} from "./weatherInfo.js";
 
-
-let convertToCelsius = function (number) {
-  let temperature = Number(number)
-  let newTemperature = (((temperature) - 32) * (5 / 9))
-  let result = newTemperature.toFixed(1)
-  return (result)
-};
+import{displayWeather} from "./displayWeather.js"
 
 
 
+
+let newPlace
+async function getWeather () {
+  let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${newPlace}?key=9VW6V5TZUV62HFKHVM5C6RFHZ`, { mode: 'cors' })
+  let dataset=response.json()
+  console.log(dataset)
+  return await dataset
+   
+}
+
+
+let locationForm = document.querySelector('#locationForm')
+locationForm.addEventListener('submit', async (event) => {
+  event.preventDefault()
+  newPlace = document.querySelector('#formLocation').value
+  let weather= await getWeather(newPlace)
+  displayWeather(weather)
+  console.log(newPlace)
+  locationForm.reset()
+}
+)
+
+export{getWeather}
 
 
 

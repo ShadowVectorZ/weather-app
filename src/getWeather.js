@@ -1,4 +1,11 @@
+import {newPlace, } from './script.js'
 
+async function getWeather () {
+  let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${newPlace}?key=9VW6V5TZUV62HFKHVM5C6RFHZ`, { mode: 'cors' })
+  let weather=await response.json()
+  console.log(weather)
+  return weather  
+}
 
 
 
@@ -9,4 +16,4 @@ let convertToCelsius = function (number) {
     return (result)
   };
 
-  export{ convertToCelsius}
+export{getWeather, convertToCelsius}

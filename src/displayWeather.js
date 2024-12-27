@@ -1,5 +1,4 @@
-import {convertToCelsius} from './getWeather.js'
-import {getWeather} from './script.js'
+import {convertToCelsius,getWeather,} from './getWeather.js'
 import cloudyImage from "./images/cloudy.png"
 import partCloudyImage from "./images/partly-cloudy.png"
 import rainImage from "./images/rain.png"
@@ -9,9 +8,9 @@ import { title, leftSide, rightSide, conditionsDiv, humidityDiv,
   tempDiv, cloudCoverDiv, precipDiv, descripDiv, windSpeed, minTemp,
   maxTemp, buttonDiv, img } from "./variables.js";
 
-let weather=await getWeather()
 
-let displayWeather=function(){
+  
+async function displayWeather(weather){
     switch(weather.currentConditions.conditions){
       case 'Partially cloudy':
         img.src=partCloudyImage;

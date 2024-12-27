@@ -1,34 +1,20 @@
 import"./styles.css";
-
-
-
+import {getWeather} from"./getWeather.js"
 import{displayWeather} from "./displayWeather.js"
 
-
-
-
 let newPlace
-async function getWeather () {
-  let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${newPlace}?key=9VW6V5TZUV62HFKHVM5C6RFHZ`, { mode: 'cors' })
-  let dataset=response.json()
-  console.log(dataset)
-  return await dataset
-   
-}
-
 
 let locationForm = document.querySelector('#locationForm')
 locationForm.addEventListener('submit', async (event) => {
   event.preventDefault()
   newPlace = document.querySelector('#formLocation').value
-  let weather= await getWeather(newPlace)
-  displayWeather(weather)
-  console.log(newPlace)
+  let weather=await getWeather(newPlace)
+ if (weather){displayWeather(weather)}
   locationForm.reset()
 }
 )
 
-export{getWeather}
+export{newPlace}
 
 
 
